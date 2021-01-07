@@ -1,0 +1,41 @@
+﻿@model TheRockFanPage.Models.QuizVM
+@{
+    ViewData["Title"] = "The Rock Quiz";
+}
+
+<div>
+    <h1 class="display-4">The Rock Quiz</h1>
+    <form method="post" class="container">
+
+        <label asp-for="UserAnswer1" class="control-label">What year was The Rock born?</label>
+        <ul>
+            <li>1969</li>
+            <li>1973</li>
+            <li>1972</li>
+        </ul>
+        <input asp-for="UserAnswer1" type="text" class="form-control pb-1" />
+        <p>@Model?.RightOrWrong1</p>
+        <br />
+        <label asp-for="UserAnswer2">What was The Rock's first lead role in a major motion picture?</label>
+        <ul>
+            <li>Scorpion King</li>
+            <li>The Rundown</li>
+            <li>The Game Plan</li>
+        </ul>
+        <input asp-for="UserAnswer2" type="text" class="form-control pb-1" />
+        <p>@Model?.RightOrWrong2</p>
+        <br />
+        <label asp-for="UserAnswer3">What arean did The Rock debue in for WWE?</label>
+        <ul>
+            <li>Tacoma Dome</li>
+            <li>Madison Square Garden</li>
+            <li>Staples Center</li>
+        </ul>
+        <input asp-for="UserAnswer3" type="text" class="form-control pb-1" />
+        <p>@Model?.RightOrWrong3</p>
+        <br />
+
+        <br />
+        <input type="submit" class="form-control btn btn-primary" />
+    </form>
+</div>

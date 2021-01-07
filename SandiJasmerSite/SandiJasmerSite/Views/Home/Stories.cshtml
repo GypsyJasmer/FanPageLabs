@@ -1,0 +1,61 @@
+﻿@model TheRockFanPage.Models.StoryModel
+@{
+    ViewData["Title"] = "Stories";
+}
+
+<div class="container m-5">
+    <div class="text-center">
+        <h1 class="jumbotron">Favorite Stories</h1>
+
+        <a asp-controller="Home" asp-action="AllStories">View All Stories</a><br />
+
+    </div>
+    <br />
+
+    <form method="post" class="container">
+        <strong>Share your Story of The Rock</strong>
+        <div class="row p-2">
+            <label asp-for="Title" class="control-label col-md-1">Title</label><br />
+            <input asp-for="Title" class="form-control col-md-6" /><br />
+        </div>
+        <br />
+        <div class="row p-2">
+            <label asp-for="Submitter.Name" class="control-label col-md-1">Submitter Name</label><br />
+            <input asp-for="Submitter.Name" class="form-control col-md-6" /><br />
+        </div>
+        <br />
+        <div class="row p-2">
+            <label asp-for="StoryText" class="control-label col-md-1">Story</label><br />
+            <textarea asp-for="StoryText" placeholder="Share your story about The Rock here!" class="form-control col-md-6"></textarea><br />
+        </div>
+        <br />
+        <div class="row p-2">
+            <button type="submit" class="btn btn-primary col-2">Submit</button>
+        </div>
+    </form>
+    <br />
+
+
+    <br />
+    <hr />
+
+    @if (Model != null)
+    {
+
+
+        <h2>Your Story</h2>
+        <p>
+            <strong>Title:</strong><br />
+            @Model.Title<br />
+            <strong>Submitter:</strong><br />
+            @Model.Submitter.Name<br />
+            <strong>Date Submitted:</strong><br />
+            @Model.DateSubmitted<br />
+            <strong>Story:</strong><br />
+            @Model.StoryText<br />
+        </p>
+    }
+
+    <a asp-controller="Home" asp-action="Index">Home</a>
+
+</div>

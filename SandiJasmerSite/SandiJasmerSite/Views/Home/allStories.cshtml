@@ -1,0 +1,32 @@
+﻿@model List<StoryModel>
+
+@{
+    ViewData["Title"] = "All Stories";
+}
+
+<div class="">
+    <h1 class="display-4">All Stories</h1>
+    <strong>Here are the stories people have to share about The Rock! </strong>
+    <br />
+
+</div>
+
+@foreach (StoryModel story in Model)
+{
+    <p>
+        <strong>Title:</strong><br />
+        @story.Title<br />
+        <strong>Submitter:</strong><br />
+        @story.Submitter.Name<br />
+        <strong>Date Submitted:</strong><br />
+        @story.DateSubmitted<br />
+        <strong>Story:</strong><br />
+        @story.StoryText<br />
+    </p>
+}
+
+
+
+
+<a asp-controller="Home" asp-action="Stories"> Back To Story Submission</a>
+
