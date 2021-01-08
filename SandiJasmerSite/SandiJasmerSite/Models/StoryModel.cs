@@ -11,10 +11,12 @@ namespace TheRockFanPage.Models
         [Key]
         public int StoryID { get; set; }
 
+        [Required]
         public string Title { get; set; }
-       
+
         //public string Topic { get; set; }
 
+        [Required]
         public string StoryText { get; set; }
 
         //my stroies has a user (HAS A relationship)
