@@ -13,6 +13,10 @@ namespace TheRockFanPage.Models
         [StringLength(60, MinimumLength = 1)]
         [Required]
         public string Name { get; set; }
+
+        [EmailAddress]
+        [Required]
+        public string Email { get; set;}
     }
 }
 
