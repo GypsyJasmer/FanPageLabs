@@ -67,13 +67,17 @@ namespace TheRockFanPage.Controllers
         [HttpPost]
         public IActionResult Stories(StoryModel model)
         {
-             model.DateSubmitted = DateTime.Now;
             //Store the model in the database
             //context.Stories.Add(model);
             //always save changes
             //context.SaveChanges();
 
-            repo.AddStory(model);
+            if (ModelState.IsValid)
+            {
+                model.DateSubmitted = DateTime.Now;
+                repo.AddStory(model);
+            }
+ 
             return View(model);
         }
 
