@@ -25,8 +25,6 @@ namespace TheRockFanPage.Models
         //Let EF manage the foriegn keys for setup. 
         public User Submitter { get; set; }
 
-        public User Email { get; set; }
-
         public DateTime DateSubmitted { get; set; }
     }
 }

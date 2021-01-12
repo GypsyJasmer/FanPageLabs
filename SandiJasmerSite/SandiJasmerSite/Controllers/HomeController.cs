@@ -77,7 +77,7 @@ namespace TheRockFanPage.Controllers
                 model.DateSubmitted = DateTime.Now;
                 repo.AddStory(model);
             }
- 
+      
             return View(model);
         }
 

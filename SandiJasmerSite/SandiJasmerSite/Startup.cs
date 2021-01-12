@@ -32,7 +32,7 @@ namespace TheRockFanPage
             services.AddTransient<IStoriesRepo, StoriesRepo>(); // Repository Interface, Repository Class in the generics
                 
             //context -> DB provider -> into our connection string
-            services.AddDbContext<StoriesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:MsSqlConnection"]));
+            services.AddDbContext<StoriesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings: ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
