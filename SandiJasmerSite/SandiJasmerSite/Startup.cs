@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TheRockFanPage.Models;
 using TheRockFanPage.Repos;
+using Microsoft.AspNetCore.Identity;
 
 namespace TheRockFanPage
 {
@@ -33,6 +34,9 @@ namespace TheRockFanPage
                 
             //context -> DB provider -> into our connection string
             services.AddDbContext<StoriesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SQLServerConnection"]));
+
+            //Adding Identity 
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<StoriesContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

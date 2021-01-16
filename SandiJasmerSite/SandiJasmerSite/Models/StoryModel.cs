@@ -23,7 +23,7 @@ namespace TheRockFanPage.Models
 
         //my stroies has a user (HAS A relationship)
         //Let EF manage the foriegn keys for setup. 
-        public User Submitter { get; set; }
+        public AppUser Submitter { get; set; }
 
         public DateTime DateSubmitted { get; set; }
     }
