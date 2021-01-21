@@ -9,7 +9,7 @@ namespace TheRockFanPage.Models
 {
     public class AppUser : IdentityUser
     {
-        public int UserID { get; set; }
+        //public int UserID { get; set; }
 
         [StringLength(60, MinimumLength = 1)]
         [Required]
