@@ -21,7 +21,7 @@ namespace Tests
             var story = new StoryModel()
             {
                 Title = "SmackDown vs. Raw is War",
-                Submitter = new User() { Name = "Sugar n Spice" },
+                Submitter = new AppUser() { Name = "Sugar n Spice" },
                 StoryText = "SmackDown was alwaysbetter"
             };
 
