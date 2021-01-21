@@ -15,9 +15,10 @@ namespace TheRockFanPage.Models
         [Required]
         public string Name { get; set; }
 
-        [EmailAddress]
+        /*[EmailAddress]
         [Required]
         public string Email { get; set;}
+        */
     }
 }
 
