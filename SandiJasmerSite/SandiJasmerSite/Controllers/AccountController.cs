@@ -54,6 +54,8 @@ namespace TheRockFanPage.Controllers
         }
 
         //LOGIN METHODS
+
+        //This is the return URL from the page we login from. 
         [HttpGet]
         public IActionResult LogIn(string returnURL = "")
         {
@@ -64,6 +66,7 @@ namespace TheRockFanPage.Controllers
             return View(model);
         }
 
+        //This authenticates the user, allows them to login. Once loggedin the Logout method will show up. 
         [HttpPost]
         public async Task<IActionResult> LogIn(LoginVM model)
         {

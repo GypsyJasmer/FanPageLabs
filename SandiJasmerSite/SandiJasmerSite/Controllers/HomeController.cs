@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -16,6 +17,7 @@ namespace TheRockFanPage.Controllers
         //field
         //StoriesContext context;
         IStoriesRepo repo;
+        UserManager<AppUser> userManager;
 
         public HomeController(IStoriesRepo r)
         {
@@ -67,19 +69,40 @@ namespace TheRockFanPage.Controllers
         [HttpPost]
         public IActionResult Stories(StoryModel model)
         {
-            //Store the model in the database
-            //context.Stories.Add(model);
-            //always save changes
-            //context.SaveChanges();
-
-            if (ModelState.IsValid)
-            {
-                model.DateSubmitted = DateTime.Now;
-                repo.AddStory(model);
-            }
-      
-            return View(model);
+            model.Submitter= userManager.GetUserAsync(User).Result;
+            // TODO: get the user's real name in registration
+            model.Submitter.Name = model.Submitter.UserName;  // temporary hack
+          
+            model.DateSubmitted = DateTime.Now;
+            // Store the model in the database
+            repo.AddStory(model);
+               
+            return View(model);           
         }
+
+        
+        [HttpPost]
+        public IActionResult Reviews(string storyTitle, string SubmitterName)
+        {
+            List<StoryModel> stories = null;
+
+            if (storyTitle != null)
+            {
+                stories = (from r in repo.Stories
+                           where r.Title == storyTitle
+                           select r).ToList();
+            }
+
+            else if (SubmitterName != null)
+            {
+                stories = (from r in repo.Stories
+                           where r.Submitter.Name == SubmitterName
+                           select r).ToList();
+            }
+
+            return View(stories);
+        }
+        
 
         //this method will send data to the webpage
         public IActionResult AllStories()
