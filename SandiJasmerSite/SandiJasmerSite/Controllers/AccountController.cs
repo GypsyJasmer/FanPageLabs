@@ -53,7 +53,7 @@ namespace TheRockFanPage.Controllers
             return View(model);
         }
 
-        /*
+        //LOGIN METHODS
         [HttpGet]
         public IActionResult LogIn(string returnURL = "")
         {
@@ -86,12 +86,14 @@ namespace TheRockFanPage.Controllers
             return View(model);
         }
 
-
+        //LOGOUT METHOD 
+        //In book it's a post however it is just calling sign in manager and redirects to home once logged out. 
+        //Logout is kind of between get & post. 
         public async Task<IActionResult> LogOut()
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-        */
+        
     } 
 }

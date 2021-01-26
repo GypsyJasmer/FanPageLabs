@@ -57,10 +57,10 @@ namespace TheRockFanPage
 
             app.UseRouting();
 
-            //Identity and Security starting
-            app.UseAuthorization();
-
             app.UseAuthentication();
+
+            //Identity and Security starting
+            app.UseAuthorization();          
 
             app.UseEndpoints(endpoints =>
             {
