@@ -20,7 +20,9 @@ namespace TheRockFanPage
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                         .UseDefaultServiceProvider(           // add this
+                         options => options.ValidateScopes = false); ;
                 });
     }
 }

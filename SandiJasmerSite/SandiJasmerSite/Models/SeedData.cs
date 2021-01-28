@@ -2,28 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace TheRockFanPage.Models
 {
     public class SeedData
     {
-        public static void Seed(StoriesContext context)
-
+        public static void Seed(StoriesContext context, RoleManager<IdentityRole> roleManager)
         {
-
             if (!context.Stories.Any())  // this is to prevent adding duplicate data
-
             {
+                //create member role
+                var result = roleManager.CreateAsync(new IdentityRole("Member")).Result;
+                AppUser emmaWatson = new AppUser { Name = "Emma Watson" };
+                context.Users.Add(emmaWatson);
+
                 StoryModel story = new StoryModel
 
                 {
                     Title = "Raw is War",
-
                     StoryText = "Is The Rock a Smackdown superstart or a Raw superstar?",
-
-                    Submitter = new AppUser { Name = "Emma Watson" },
-
+                    Submitter = emmaWatson,
                     DateSubmitted = DateTime.Parse("11/1/2020")
                 };
 
@@ -32,11 +31,8 @@ namespace TheRockFanPage.Models
                 story = new StoryModel
                  {
                     Title = "Smackdown",
-
                     StoryText = "Is The Rock a Smackdown superstart or a Raw superstar?",
-
                     Submitter = new AppUser { Name = "Dwayne Johnson" },
-
                     DateSubmitted = DateTime.Parse("11/1/2020")
                  };
 
@@ -52,11 +48,8 @@ namespace TheRockFanPage.Models
                 story = new StoryModel
                 {
                     Title = "If I was a WWE Superstar",
-
                     StoryText = "My persona would be called Sugar N' Spice and I'd be really sweet but then hardcore at getting the title.",
-
                     Submitter = submitterSandiJasmer,
-
                     DateSubmitted = DateTime.Parse("11/1/2020")
                 };
                 context.Stories.Add(story);
@@ -64,15 +57,12 @@ namespace TheRockFanPage.Models
                 story = new StoryModel
                 {
                     Title = "Favorite Rock Match",
-
                     StoryText = "I went to Wrestlemania 17 and The Rock was matched against Hulk Hogan. It was awesome! The Rock won!",
-
                     Submitter = submitterSandiJasmer,
-
                     DateSubmitted = DateTime.Parse("11/1/2020")
                 };
 
-                //context.Stories.Add(story);​
+               // context.Stories.Add(story);​
 
                 context.SaveChanges(); // stores all the reviews in the DB
 
