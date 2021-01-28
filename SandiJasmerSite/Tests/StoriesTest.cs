@@ -17,7 +17,7 @@ namespace Tests
         {
             // Arrange
             var fakeRepo = new FakeStoryRepo();
-            var controller = new HomeController(fakeRepo);
+            var controller = new HomeController(fakeRepo, null);
             var story = new StoryModel()
             {
                 Title = "SmackDown vs. Raw is War",
@@ -40,7 +40,7 @@ namespace Tests
         {
             // arrange
             var fakeRepo = new FakeStoryRepo();
-            var controller = new HomeController(fakeRepo);
+            var controller = new HomeController(fakeRepo, null);
 
             // act
             var result = controller.Index();
