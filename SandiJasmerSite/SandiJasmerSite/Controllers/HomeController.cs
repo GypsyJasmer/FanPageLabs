@@ -83,7 +83,7 @@ namespace TheRockFanPage.Controllers
 
         
         [HttpPost]
-        public IActionResult Stories(string storyTitle, string SubmitterName)
+        public IActionResult AllStories(string storyTitle, string SubmitterName)
         {
             List<StoryModel> stories = null;
 
