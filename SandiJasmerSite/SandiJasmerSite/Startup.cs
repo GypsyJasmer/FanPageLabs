@@ -33,7 +33,7 @@ namespace TheRockFanPage
             services.AddTransient<IStoriesRepo, StoriesRepo>(); // Repository Interface, Repository Class in the generics
                 
             //context -> DB provider -> into our connection string
-            services.AddDbContext<StoriesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SQLServerConnection"]));
+            services.AddDbContext<StoriesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ConnectionString"]));
 
             //Adding Identity 
             services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<StoriesContext>().AddDefaultTokenProviders();

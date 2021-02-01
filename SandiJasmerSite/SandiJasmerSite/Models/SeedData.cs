@@ -54,7 +54,7 @@ namespace TheRockFanPage.Models
                 };
                 context.Stories.Add(story);
 
-                story = new StoryModel
+                /*story = new StoryModel
                 {
                     Title = "Favorite Rock Match",
                     StoryText = "I went to Wrestlemania 17 and The Rock was matched against Hulk Hogan. It was awesome! The Rock won!",
@@ -62,7 +62,7 @@ namespace TheRockFanPage.Models
                     DateSubmitted = DateTime.Parse("11/1/2020")
                 };
 
-               // context.Stories.Add(story);​
+                //context.Stories.Add(story);​*/
 
                 context.SaveChanges(); // stores all the reviews in the DB
 
