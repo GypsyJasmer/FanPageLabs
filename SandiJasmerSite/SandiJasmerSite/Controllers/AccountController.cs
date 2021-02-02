@@ -57,7 +57,7 @@ namespace TheRockFanPage.Controllers
 
         //This is the return URL from the page we login from. 
         [HttpGet]
-        public IActionResult LogIn(string returnURL = "")
+        public IActionResult LogIn(string returnURL)
         {
             var model = new LoginVM
             {

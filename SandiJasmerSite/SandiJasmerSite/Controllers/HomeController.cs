@@ -51,7 +51,6 @@ namespace TheRockFanPage.Controllers
 
 
         [Authorize]
-        [HttpGet]// Invoke the view with form for entering a review
         public IActionResult Stories()
         {/*
             StoriesModels model = new StoriesModels();
