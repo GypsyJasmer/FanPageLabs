@@ -28,8 +28,6 @@ namespace TheRockFanPage.Controllers
             roleManager = roleMngr;
             storiesRepo = repo;
         }
-
-
        
         public async Task<IActionResult> Index()
         {
