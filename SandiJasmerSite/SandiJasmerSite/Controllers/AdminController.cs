@@ -122,7 +122,7 @@ namespace TheRockFanPage.Controllers
        
 
         /****************  Role management *******************/
-        /*
+        
         [HttpPost]
         public async Task<IActionResult> DeleteRole(string id)
         {
@@ -166,7 +166,7 @@ namespace TheRockFanPage.Controllers
             }
             return View(model);
         }
-        */
+        
     }
 }
 
