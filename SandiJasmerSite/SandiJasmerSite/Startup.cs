@@ -70,8 +70,9 @@ namespace TheRockFanPage
             });
 
             var serviceProvider = app.ApplicationServices;
+            var userManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            SeedData.Seed(context, roleManager);
+            SeedData.Seed(context, userManager, roleManager);
         }
     }
 }
