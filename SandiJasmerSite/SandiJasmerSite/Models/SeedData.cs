@@ -13,6 +13,9 @@ namespace TheRockFanPage.Models
         {
             if (!context.Stories.Any())  // this is to prevent adding duplicate data
             {
+                //this makes sure that db is created. 
+                context.Database.EnsureCreated();
+
                 //create member role
                 var result = roleManager.CreateAsync(new IdentityRole("Member")).Result;
                 result = roleManager.CreateAsync(new IdentityRole("Admin")).Result;
