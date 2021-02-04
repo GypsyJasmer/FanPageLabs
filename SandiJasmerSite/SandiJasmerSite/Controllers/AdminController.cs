@@ -13,7 +13,7 @@ namespace TheRockFanPage.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        
+        //field
         private UserManager<AppUser> userManager;
         private RoleManager<IdentityRole> roleManager;
         private IStoriesRepo storiesRepo;
@@ -49,9 +49,7 @@ namespace TheRockFanPage.Controllers
         } 
         
         // the other action methods } 
-
-        /*
-
+/****************DELETE**********************/
        [HttpPost]
        public async Task<IActionResult> Delete(string id)
        {
@@ -59,49 +57,52 @@ namespace TheRockFanPage.Controllers
            AppUser user = await userManager.FindByIdAsync(id);
            if (user != null)
            {
-               // Check to see if the user has posted a review
-               if (0 == (from r in reviewRepo.Reviews
-                         where r.Reviewer.Name == user.Name
-                         select r).Count<Review>())
+               // Check to see if the user has posted any stories in the db
+               if (0 == (from r in storiesRepo.Stories
+                         where r.Submitter.Name == user.Name
+                         select r).Count<StoryModel>())
                {
-
+                   //delete if stories posted
                    result = await userManager.DeleteAsync(user);
                }
-               else
-               {
+               else // Error promted if user has stories in DB
+               {               
                    result = IdentityResult.Failed(new IdentityError()
                    { Description = "User's reviews must be deleted first" });
                }
 
-               if (!result.Succeeded)
-               {
-                   // if failed 
+                // if failed to delete user 
+                if (!result.Succeeded) 
+                {                  
                    string errorMessage = "";
                    foreach (IdentityError error in result.Errors)
                    {
                        errorMessage += errorMessage != "" ? " | " : "";   // put a separator between messages
                        errorMessage += error.Description;
                    }
+                   //TempData is like ViewBag or ViewData it holds the error message
                    TempData["message"] = errorMessage;
                }
-               else
+               else //if succeeds we will clear error message of user having reviews. 
                {
-                   TempData["message"] = "";  // No errors, clear the message
+                   TempData["message"] = "";  
                }
            }
            return RedirectToAction("Index");
        }
 
+      /*************ADD TO ADMIN*************/
        [HttpPost]
        public async Task<IActionResult> AddToAdmin(string id)
        {
            IdentityRole adminRole = await roleManager.FindByNameAsync("Admin");
+            //if admin 
            if (adminRole == null)
            {
                TempData["message"] = "Admin role does not exist. "
                    + "Click 'Create Admin Role' button to create it.";
            }
-           else
+           else //create that user to be admin
            {
                AppUser user = await userManager.FindByIdAsync(id);
                await userManager.AddToRoleAsync(user, adminRole.Name);
@@ -109,7 +110,8 @@ namespace TheRockFanPage.Controllers
            return RedirectToAction("Index");
        }
 
-       [HttpPost]
+        /*************REMOVE FROM ADMIN*************/
+        [HttpPost]
        public async Task<IActionResult> RemoveFromAdmin(string id)
        {
            AppUser user = await userManager.FindByIdAsync(id);
@@ -117,7 +119,7 @@ namespace TheRockFanPage.Controllers
            if (result.Succeeded) { }
            return RedirectToAction("Index");
        }
-       */
+       
 
         /****************  Role management *******************/
         /*

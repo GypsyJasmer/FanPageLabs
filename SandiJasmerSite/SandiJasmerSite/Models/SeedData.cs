@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace TheRockFanPage.Models
 {
     public class SeedData
@@ -17,14 +18,19 @@ namespace TheRockFanPage.Models
                 result = roleManager.CreateAsync(new IdentityRole("Admin")).Result;
 
                 /***********************Seeding a default administrator. They will need to change their password after logging in.*****************/
-                /*AppUser siteadmin = new AppUser
+                
+                /*
+                AppUser siteadmin = new AppUser
                 {
                     UserName = "SiteAdmin",
                     Name = "Site Admin"
                 };
-                userManager.CreateAsync(siteadmin, "Secret-123").Wait();
+
+                userManager.CreateAsync(siteadmin, "Legolas1!").Wait();
                 IdentityRole adminRole = roleManager.FindByNameAsync("Admin").Result;
-                userManager.AddToRoleAsync(siteadmin, adminRole.Name); */
+                userManager.AddToRoleAsync(siteadmin, adminRole.Name); 
+                */
+                
 
                 /******************User1****************/
                 AppUser emmaWatson = new AppUser 
@@ -70,7 +76,7 @@ namespace TheRockFanPage.Models
                 AppUser submitterSandiJasmer = new AppUser
                 {
                     UserName = "Sandos",
-                    Name = "Sandi Jasmer" 
+                    Name = "Sandi Jasmer" ,               
                 };
                 context.Users.Add(submitterSandiJasmer);
                 context.SaveChanges();   // This will add a UserID to the reviewer object
