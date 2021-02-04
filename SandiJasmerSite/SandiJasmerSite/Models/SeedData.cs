@@ -9,7 +9,7 @@ namespace TheRockFanPage.Models
 {
     public class SeedData
     {
-        public static void Seed(StoriesContext context, RoleManager<IdentityRole> roleManager)
+        public static void Seed(StoriesContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (!context.Stories.Any())  // this is to prevent adding duplicate data
             {
@@ -19,17 +19,17 @@ namespace TheRockFanPage.Models
 
                 /***********************Seeding a default administrator. They will need to change their password after logging in.*****************/
                 
-                /*
+                
                 AppUser siteadmin = new AppUser
                 {
                     UserName = "SiteAdmin",
                     Name = "Site Admin"
                 };
 
-                userManager.CreateAsync(siteadmin, "Legolas1!").Wait();
+                userManager.CreateAsync(siteadmin, "Secret-123").Wait();
                 IdentityRole adminRole = roleManager.FindByNameAsync("Admin").Result;
                 userManager.AddToRoleAsync(siteadmin, adminRole.Name); 
-                */
+                
                 
 
                 /******************User1****************/
