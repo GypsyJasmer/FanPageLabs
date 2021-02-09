@@ -131,8 +131,6 @@ namespace TheRockFanPage.Controllers
 
         }
 
-
-
         // gets the data back from the form 
         [HttpPost]
         public RedirectToActionResult Comment(CommentVM commentVM)
