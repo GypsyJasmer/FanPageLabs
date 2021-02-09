@@ -28,6 +28,7 @@ namespace TheRockFanPage.Controllers
             userManager = u;
         }
 
+/***************CONTROLLER VIEWS************/
         public IActionResult Index()
         {
             return View();
@@ -50,6 +51,7 @@ namespace TheRockFanPage.Controllers
         }
 
 
+/*************** SUBMITTING A STORY**********/
         [Authorize]
         public IActionResult Stories()
         {/*
@@ -80,7 +82,7 @@ namespace TheRockFanPage.Controllers
             return View(model);           
         }
 
-        
+ /***********SEE ALL STORIES SUBMITTED METHODS******************/     
         [HttpPost]
         public IActionResult AllStories(string storyTitle, string SubmitterName)
         {
@@ -115,6 +117,42 @@ namespace TheRockFanPage.Controllers
             //sent to a new view (to be created)
             return View(allStories);
             
+        }
+
+
+ /*****************COMMENT METHODS*******************/
+        // bring up the form for entering a comment
+        [Authorize] //allows the user to not open form unless logged in
+        [HttpGet]
+        public IActionResult Comment(int storyID)
+        {
+            var commentVM = new CommentVM {StoryID = storyID };
+            return View(commentVM);
+
+        }
+
+
+
+        // gets the data back from the form 
+        [HttpPost]
+        public RedirectToActionResult Comment(CommentVM commentVM)
+        {
+            // Comment is the domain model 
+            var comment = new Comment { CommentText = commentVM.CommentText }; // User input
+            comment.Commenter = userManager.GetUserAsync(User).Result; // Get user from UserManager
+            comment.Commenter.Name = comment.Commenter.UserName;
+            comment.CommentDate = DateTime.Now;
+
+            // Retrieve the story the comment is for
+            var story = (from r in repo.Stories
+                           where r.StoryID == commentVM.StoryID
+                           select r).First<StoryModel>();
+
+            // Store the message with the comment in the database
+            story.Comments.Add(comment);
+            repo.UpdateStory(story);
+
+            return RedirectToAction("allStories");
         }
 
     }

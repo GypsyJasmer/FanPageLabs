@@ -7,7 +7,7 @@ namespace TheRockFanPage.Models
 {
     public class CommentVM
     {
-        public int MessageID { get; set; } // Identifies the message being reviewed
+        public int StoryID { get; set; } 
         public int Subject { get; set; }
         public string CommentText { get; set; }
     }

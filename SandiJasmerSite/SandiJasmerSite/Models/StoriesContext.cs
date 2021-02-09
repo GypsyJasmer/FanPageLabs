@@ -15,7 +15,9 @@ namespace TheRockFanPage.Models
 
         public DbSet<StoryModel> Stories { get; set; }
 
-       // public DbSet<AppUser> Users { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
+        // public DbSet<AppUser> Users { get; set; }
 
     }
 }
