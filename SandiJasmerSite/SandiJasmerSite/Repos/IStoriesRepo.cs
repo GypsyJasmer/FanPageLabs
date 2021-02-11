@@ -12,7 +12,7 @@ namespace TheRockFanPage.Repos
     {
         IQueryable<StoryModel> Stories { get; }  // Read (or retrieve) Story
 
-        IQueryable<StoryModel> Date { get; }       // retrieve message by date
+        //IQueryable<StoryModel> Date { get; }       // retrieve message by date
 
         StoryModel GetStoryByTitle(string title);  // Retrieve a particular story
 

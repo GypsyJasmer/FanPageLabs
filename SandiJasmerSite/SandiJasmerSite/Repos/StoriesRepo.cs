@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TheRockFanPage.Models;
-using TheRockFanPage.Repos;
 using Microsoft.EntityFrameworkCore;
 
 namespace TheRockFanPage.Repos
@@ -33,15 +30,25 @@ namespace TheRockFanPage.Repos
                 // use Include, because Messenger object in Message.cs is a User
                 // when we pull something from the DBContext, it will not go past the 'top level' object (which is Message)
                 // this will return the messages
-                return context.Stories.Include(story => story.Submitter);
+                //Added comments to be updated too. 
+                return context.Stories.Include(story => story.Submitter)
+                    .Include(story => story.Comments)
+                    .ThenInclude(comment => comment.Commenter);
             }
         }
 
+        /*************Add & Update Stories******/
         public void AddStory(StoryModel stories)
         {
             //store the model in the database. These are coming from StoriesContext
             context.Stories.Add(stories);
             context.SaveChanges(); //always save, and that will put data into the database
+        }
+
+        public void UpdateStory(StoryModel story)
+        {
+            context.Stories.Update(story);   // Find the review by ReviewID and update it
+            context.SaveChanges();
         }
 
         public StoryModel GetStoryByTitle(string title)
