@@ -11,7 +11,16 @@ namespace TheRockFanPage.Repos
     public interface IStoriesRepo
     {
         IQueryable<StoryModel> Stories { get; }  // Read (or retrieve) Story
-        void AddStory(StoryModel story);  // Create a story
+
+        //IQueryable<StoryModel> Date { get; }       // retrieve message by date
+
         StoryModel GetStoryByTitle(string title);  // Retrieve a particular story
+
+        void AddStory(StoryModel story);  // Create a story
+
+        void UpdateStory(StoryModel story); 
+
+
+
     }
 }

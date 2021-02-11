@@ -8,8 +8,33 @@
     <h1 class="display-4">All Stories</h1>
     <strong>Here are the stories people have to share about The Rock! </strong>
     <br />
-
 </div>
+
+<br />
+
+@*
+    <form method="post" class="container">
+        <div class="row p-2">
+            <label for="Title" class="control-label col-md-1">Title</label>
+            <input name="Title" class="form-control col-md-6" />
+        </div>
+        <div class="row p-2">
+            <button type="submit" class="form-control btn btn-success col-2">Submit</button>
+            <a asp-action="allStories" class="btn btn-secondary col-3">Reset</a>
+        </div>
+    </form>
+*@
+
+@*Search by name COMMENT BUTTON*@
+<form method="post" class="container">
+    <div class="row p-2">
+        <label for="SubmitterName" class="control-label col-md-1">Submitter Name</label>
+        <input name="SubmitterName" class="form-control col-md-6" />
+    </div>
+    <div class="row p-2">
+        <button type="submit" class="form-control btn btn-success col-2">Submit</button>
+    </div>
+</form>
 
 @foreach (StoryModel story in Model)
 {
@@ -23,9 +48,25 @@
         <strong>Story:</strong><br />
         @story.StoryText<br />
     </p>
+    @if (story.Comments.Count != 0)
+    {
+        <h3>Comments</h3>
+
+        @foreach (Comment comment in story.Comments)
+        {
+            <p>
+                <strong class="m-3">Comment:</strong>
+                @comment.CommentText<br />
+                <strong class="m-3">By:</strong>
+                @comment.Commenter.Name<br />
+                <strong class="m-3">Date:</strong>
+                @comment.CommentDate.Date<br />
+            </p>
+        }
+    }
+    <a asp-action="Comment" asp-route-storyId="@story.StoryID" class="btn btn-secondary col-3">Add Comment</a>
+
 }
-
-
 
 
 <a asp-controller="Home" asp-action="Stories"> Back To Story Submission</a>

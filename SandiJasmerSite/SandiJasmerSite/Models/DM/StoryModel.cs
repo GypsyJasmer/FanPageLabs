@@ -8,6 +8,8 @@ namespace TheRockFanPage.Models
 {
     public class StoryModel
     {
+        private List<Comment> comments = new List<Comment>(); // create a list of type comment
+
         [Key]
         public int StoryID { get; set; }
 
@@ -26,6 +28,12 @@ namespace TheRockFanPage.Models
         public AppUser Submitter { get; set; }
 
         public DateTime DateSubmitted { get; set; }
+
+        public List<Comment> Comments
+        {
+            get { return comments; }
+        }
+
     }
 }
 
