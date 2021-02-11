@@ -139,7 +139,7 @@ namespace TheRockFanPage.Controllers
             var comment = new Comment { CommentText = commentVM.CommentText }; // User input
             comment.Commenter = userManager.GetUserAsync(User).Result; // Get user from UserManager
             comment.Commenter.Name = comment.Commenter.UserName;
-            comment.CommentDate = DateTime.Now;
+            comment.CommentDate = DateTime.Now; 
 
             // Retrieve the story the comment is for
             var story = (from r in repo.Stories
