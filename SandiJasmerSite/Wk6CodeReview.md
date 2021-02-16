@@ -18,24 +18,25 @@ The developer will revise the beta version of their lab work and fill out the â€
 
 Add explanatory comments in the row following any "no" answers.
 
-| **Criteria**                                                 | **Beta** | **Release** |
-| ------------------------------------------------------------ | -------- | ----------- |
-| Does it compile and run without errors?                      |          |             |
-| Do all the pages load correctly?                             |          |             |
-| Does the style conform to MVC conventions and our class standards? |          |             |
-| Do all the links, buttons or other UI elements work correctly? |          |             |
-| Do the design and implementation conform to OOP best practices? |          |             |
-| Does the style conform to C# coding conventions?             |          |             |
-| Does the solution meet all the requirements?                 |          |             |
-| Summary Comments:                                            |          |             |
-|                                                              |          |             |
-|                                                              |          |             |
-|                                                              |          |             |
-|                                                              |          |             |
-| Zap Reporting:                                               |          |             |
-| A list of the high, medium and low priority issues that came up in the initial passive and active scans of your app. |          |             |
-| The issues you chose to mitigate and the classes and methods that you changed to implement the mitigation. |          |             |
-| A list of the issues that come up in passive and active scans after making the code changes. |          |             |
+| **Criteria**                                                 | **Beta**                   | **Release** |
+| ------------------------------------------------------------ | -------------------------- | ----------- |
+| Does it compile and run without errors?                      |                            |             |
+| Do all the pages load correctly?                             |                            |             |
+| Does the style conform to MVC conventions and our class standards? |                            |             |
+| Do all the links, buttons or other UI elements work correctly? |                            |             |
+| Do the design and implementation conform to OOP best practices? |                            |             |
+| Does the style conform to C# coding conventions?             |                            |             |
+| Does the solution meet all the requirements?                 |                            |             |
+| Summary Comments:                                            |                            |             |
+|                                                              |                            |             |
+| Zap Reporting:                                               |                            |             |
+| A list of the high, medium and low priority issues that came up in the initial passive and active scans of your app. | See ZapReport Doc          |             |
+| -Working on these three risks:  Cross Site Scripting (Reflected), Format String Error, X-Frame-Options Header Not Set |                            |             |
+| The issues you chose to mitigate and the classes and methods that you changed to implement the mitigation. |                            |             |
+| -Working on fixing login post methods, ran into cross site scripting, both in the account controller. https://portswigger.net/web-security/cross-site-scripting/cheat-sheet                                                                                                                                            -Format String Error fix in home controller and stories view.                                                                           -X-Frame-Options Header Not Set shows up 17 times in my code and is based around my get methods and only 3 post methods. |                            |             |
+|                                                              |                            |             |
+| A list of the issues that come up in passive and active scans after making the code changes. | Haven't ran after fix yet. |             |
+|                                                              |                            |             |
 
  
 
