@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using TheRockFanPage.Models;
 using TheRockFanPage.Repos;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Http;
 
 namespace TheRockFanPage
 {
@@ -52,6 +54,10 @@ namespace TheRockFanPage
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            //Lab #6 error 
+            app.UseCookiePolicy(new CookiePolicyOptions { HttpOnly = HttpOnlyPolicy.Always, Secure = CookieSecurePolicy.Always });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

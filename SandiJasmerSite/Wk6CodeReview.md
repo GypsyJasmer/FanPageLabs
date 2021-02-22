@@ -1,12 +1,12 @@
 # Code Review Form
 
-|                                                      | --------------------------------------- |
-| ---------------------------------------------------- | --------------------------------------- |
-| Course  number, lab number and lab group             |                                         |
-| Developer                                            |                                         |
-| URL  for the project repository and branch on GitHub |                                         |
-| URL  on a server (if it has been published)          |                                         |
-| Reviewer  and Date                                   |                                         |
+|                                                      | See ZAP notes below                        |
+| ---------------------------------------------------- | ------------------------------------------ |
+| Course  number, lab number and lab group             |                                            |
+| Developer                                            | Sandi Jasmer                               |
+| URL  for the project repository and branch on GitHub | https://github.com/GypsyJasmer/FanPageLabs |
+| URL  on a server (if it has been published)          | jasmers-001-site1.ctempurl.com             |
+| Reviewer  and Date                                   |                                            |
 
 ###  Instructions
 
@@ -20,14 +20,14 @@ Add explanatory comments in the row following any "no" answers.
 
 | **Criteria**                                                 | **Beta**                   | **Release** |
 | ------------------------------------------------------------ | -------------------------- | ----------- |
-| Does it compile and run without errors?                      |                            |             |
-| Do all the pages load correctly?                             |                            |             |
-| Does the style conform to MVC conventions and our class standards? |                            |             |
-| Do all the links, buttons or other UI elements work correctly? |                            |             |
-| Do the design and implementation conform to OOP best practices? |                            |             |
-| Does the style conform to C# coding conventions?             |                            |             |
-| Does the solution meet all the requirements?                 |                            |             |
-| Summary Comments:                                            |                            |             |
+| Does it compile and run without errors?                      | Yes                        |             |
+| Do all the pages load correctly?                             | Yes                        |             |
+| Does the style conform to MVC conventions and our class standards? | Yes                        |             |
+| Do all the links, buttons or other UI elements work correctly? | Yes                        |             |
+| Do the design and implementation conform to OOP best practices? | Yes                        |             |
+| Does the style conform to C# coding conventions?             | Yes                        |             |
+| Does the solution meet all the requirements?                 | Yes                        |             |
+| Summary Comments: See below notes concerning Zap Reporting.  |                            |             |
 |                                                              |                            |             |
 | Zap Reporting:                                               |                            |             |
 | A list of the high, medium and low priority issues that came up in the initial passive and active scans of your app. | See ZapReport Doc          |             |
