@@ -55,6 +55,16 @@ namespace TheRockFanPage
                 app.UseHsts();
             }
 
+            //This method get called by the runtime, use this methog to configure the HTTP request pipeline. 
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+                context.Response.Headers.Add("X-Frame_Options", "SAMEORIGIN");
+                context.Response.Headers.Add("Paragma", "no-cache");
+                context.Response.Headers.Add("Cache-Control", "no-chche");
+                await next();
+            });
+
             //Lab #6 error 
             app.UseCookiePolicy(new CookiePolicyOptions { HttpOnly = HttpOnlyPolicy.Always, Secure = CookieSecurePolicy.Always });
 
