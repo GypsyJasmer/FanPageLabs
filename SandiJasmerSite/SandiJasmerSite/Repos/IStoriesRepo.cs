@@ -18,8 +18,12 @@ namespace TheRockFanPage.Repos
 
         void AddStory(StoryModel story);  // Create a story
 
-        void UpdateStory(StoryModel story); 
+        void UpdateStory(StoryModel story);
 
+        List<StoryModel> GetAllStories();
+
+        StoryModel GetOneStory_byID(int ID);
+      
 
 
     }

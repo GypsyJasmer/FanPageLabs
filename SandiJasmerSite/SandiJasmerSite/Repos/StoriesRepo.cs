@@ -2,6 +2,7 @@
 using System.Linq;
 using TheRockFanPage.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace TheRockFanPage.Repos
 {
@@ -56,6 +57,17 @@ namespace TheRockFanPage.Repos
             throw new NotImplementedException();
         }
 
+        /*************Get all API******/
+        public List<StoryModel> GetAllStories()
+        {
+            return context.Stories.ToList();
+        }
+
+        /*************Get one story by ID for API******/
+        public StoryModel GetOneStory_byID(int ID)
+        {
+            return context.Stories.Find(ID); 
+        }
     }
 
 

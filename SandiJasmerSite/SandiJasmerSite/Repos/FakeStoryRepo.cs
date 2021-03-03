@@ -25,6 +25,18 @@ namespace TheRockFanPage.Repos
             stories.Add(story);
         }
 
+        public List<StoryModel> GetAllStories()
+        {
+           // return stories.Include(e => e.Submitter).Include(e => e.Title).Include(e => e.StoryText).ToList();
+            throw new NotImplementedException();
+        }
+
+        public StoryModel GetOneStory_byID(int ID)
+        {
+            // return stories.FirstOrDefault(ID);
+            throw new NotImplementedException();
+        }
+
         public StoryModel GetStoryByTitle(string title)
         {
             throw new NotImplementedException();
