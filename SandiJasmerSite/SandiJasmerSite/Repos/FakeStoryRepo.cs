@@ -42,6 +42,11 @@ namespace TheRockFanPage.Repos
             throw new NotImplementedException();
         }
 
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdateStory(StoryModel story)
         {
             throw new NotImplementedException();

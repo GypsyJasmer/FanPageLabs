@@ -1,0 +1,57 @@
+
+GetAllStories
+
+URL:https://localhost:44308/api/StoriesAPI
+[
+    {
+        "storyID": 1,
+        "title": "Raw is War",
+        "storyText": "Is The Rock a Smackdown superstart or a Raw superstar?",
+        "submitter": null,
+        "dateSubmitted": "2020-11-01T00:00:00",
+        "comments": []
+    },
+    {
+        "storyID": 2,
+        "title": "Smackdown",
+        "storyText": "Is The Rock a Smackdown superstart or a Raw superstar?",
+        "submitter": null,
+        "dateSubmitted": "2020-11-01T00:00:00",
+        "comments": []
+    },
+    {
+        "storyID": 3,
+        "title": "If I was a WWE Superstar",
+        "storyText": "My persona would be called Sugar N' Spice and I'd be really sweet but then hardcore at getting the title.",
+        "submitter": null,
+        "dateSubmitted": "2020-11-01T00:00:00",
+        "comments": []
+    }
+]
+
+-------------------------------------------------
+
+GetOne
+https://localhost:44308/api/StoriesAPI/1
+
+{
+    "storyID": 1,
+    "title": "Raw is War",
+    "storyText": "Is The Rock a Smackdown superstart or a Raw superstar?",
+    "submitter": null,
+    "dateSubmitted": "2020-11-01T00:00:00",
+    "comments": []
+}
+
+---------------------------------------------
+AddNewStory
+
+https://localhost:44308/api/StoriesAPI
+{
+    "storyID": 4,
+    "title": "Suck IT ",
+    "storyText": "Degeneration XXXX",
+    "submitter": null,
+    "dateSubmitted": "2020-11-01T00:00:00",
+    "comments": []
+}

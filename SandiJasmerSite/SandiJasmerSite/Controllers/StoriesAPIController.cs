@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TheRockFanPage.Models;
 using TheRockFanPage.Repos;
 
 namespace TheRockFanPage.Controllers
@@ -51,6 +52,14 @@ namespace TheRockFanPage.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult PostStory(StoryModel postStory)
+        {
+            repo.AddStory(postStory);
+            repo.SaveChanges();
+
+            return CreatedAtAction("GetOneStory", new { id = postStory.StoryID }, postStory);
+        }
 
 
 

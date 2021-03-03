@@ -23,7 +23,9 @@ namespace TheRockFanPage.Repos
         List<StoryModel> GetAllStories();
 
         StoryModel GetOneStory_byID(int ID);
-      
+
+        public void SaveChanges();
+     
 
 
     }

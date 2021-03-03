@@ -68,6 +68,11 @@ namespace TheRockFanPage.Repos
         {
             return context.Stories.Find(ID); 
         }
+
+        public void SaveChanges()
+        {
+            context.SaveChanges();
+        }
     }
 
 
