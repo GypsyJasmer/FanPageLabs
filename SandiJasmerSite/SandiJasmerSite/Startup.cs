@@ -31,7 +31,9 @@ namespace TheRockFanPage
 
             // inject our repositories into our controllers
             services.AddTransient<IStoriesRepo, StoriesRepo>(); // Repository Interface, Repository Class in the generics
-                
+
+            services.AddTransient<ICommentRepo, CommentRepo>(); // Repository Interface, Repository Class in the generics
+
             //context -> DB provider -> into our connection string
             services.AddDbContext<StoriesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ConnectionString"]));
 
